@@ -1,0 +1,18 @@
+#categorias{
+    margin-bottom: 20px;
+}
+#categorias button{
+    margin-right: 10px;
+}
+#galeria{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#galeria img{
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
