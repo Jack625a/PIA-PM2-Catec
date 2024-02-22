@@ -28,6 +28,7 @@ function filtrarPorCategoria(categoria){
         if(img.classList.contains(categoria))
         {
             img.style.display="block";
+            //img.style.width="350px";
         }else{
             img.style.display="none";
         }
