@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple</title>
+</head>
+<body>
+    <h1>Calculadora Simple</h1>
+    <form id="formulario">
+        <label for="numero1">Numero 1: </label>
+        <input type="number" name="numero1" id="numero1" required>
+        <br><br>
+        <label for="numero2">Numero 2: </label>
+        <input type="number" name="numero2" id="numero2" required>
+        <br><br>
+        <label for="operacion">Operacion: </label>
+        <select name="operacion" id="operacion" required>
+            <option value="sumar">Sumar</option>
+            <option value="restar">Restar</option>
+            <option value="multiplicar">Multiplicar</option>
+            <option value="dividir">Dividir</option>
+        </select>
+        <br><br>
+        <button type="submit">Calcular</button>
+    </form>
+    <div id="resultado">
+
+    </div>
+<script>
+    const formulario=document.getElementById('formulario');
+    const contenedorResultado=document.getElementById('resultado');
+
+    formulario.addEventListener('submit',(evento)=>{
+        evento.preventDefault();
+        const formData=new FormData(formulario);
+        const data={
+            numero1:formData.get('numero1'),
+            numero2:formData.get('numero2'),
+            operacion:formData.get('operacion'),
+        };
+    fetch('/calcular',{
+        method:'POST',
+        body: new URLSearchParams(data),
+        headers:{
+            'Content-Type':'application/x-www-form-urlencoded'
+        }
+    })
+    .then(response=>
+        response.text())
+    .then(data=>{
+        contenedorResultado.textContent=`Resultado: ${data}`;
+    })
+    .catch(error=> console.error('Error al realizar el calculo, error'));
+
+    });
+</script>
+</body>
+</html>
