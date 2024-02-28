@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Catec</title>
+
+</head>
+<style>
+    body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 20px;
+    text-align: center;
+    background-color: azure;
+}
+h1{
+    color: brown;
+}
+#productos{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.producto{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+}
+.producto img{
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+}
+</style>
+<body>
+    <h1>Tienda Catec</h1>
+    <div id="productos">
+  
+    </div>
+
+<script>
+
+const productos=[
+    {
+        "nombre":"Producto 1",
+        "precio": 500,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 2",
+        "precio":850,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 3",
+        "precio":800,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 4",
+        "precio":1050,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 5",
+        "precio":3650,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 6",
+        "precio":1250,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 7",
+        "precio":1960,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "nombre":"Producto 8",
+        "precio":250,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    }
+
+]
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    /*fetch('/productos')
+      .then(response => response.json())
+      .then(data =>*/ 
+        const productosContainer = document.getElementById('productos');
+        productos.forEach(producto => {
+          const productoDiv = document.createElement('div');
+          productoDiv.classList.add('producto');
+            //Imagenes
+          const imagen = document.createElement('img');
+          imagen.src = producto.imagen;
+          productoDiv.appendChild(imagen);
+            //TItulo Producto
+          const nombre = document.createElement('h3');
+          nombre.textContent = producto.nombre;
+          productoDiv.appendChild(nombre);
+            //Precio
+          const precio = document.createElement('p');
+          precio.textContent = `${producto.precio} Bs`;
+          productoDiv.appendChild(precio);
+  
+          
+
+          //Boton Comprar
+          const boton=document.createElement('button');
+          boton.textContent='Comprar';
+          productoDiv.appendChild(boton);
+
+          productosContainer.appendChild(productoDiv);
+        });
+      });
+
+
+     // .catch(error => console.error(':', error));
+  
+  
+</script>
+</body>
+</html>
