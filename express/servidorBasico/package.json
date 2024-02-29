@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "name": "servidorbasico",
+  "version": "1.0.0",
+  "description": "Servidor Basico con Express",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Catec",
+  "license": "ISC"
+}
