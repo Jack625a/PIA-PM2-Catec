@@ -1,0 +1,39 @@
+[
+    {
+        "id":1,
+        "nombre":"Producto 1",
+        "precio": 500,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "id":2,
+        "nombre":"Producto 2",
+        "precio":850,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "id":3,
+        "nombre":"Producto 3",
+        "precio":800,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "id":4,
+        "nombre":"Producto 4",
+        "precio":1050,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "id":5,
+        "nombre":"Producto 5",
+        "precio":3650,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    },
+    {
+        "id":6,
+        "nombre":"Producto 6",
+        "precio":1250,
+        "imagen":"https://www.eltiempo.com/files/article_main_1200/uploads/2023/10/10/65254916add31.jpeg"
+    }
+
+]

@@ -1,0 +1,37 @@
+nav ul li{
+    display: inline;
+
+}
+.producto{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0,0,1);
+    width: 250px;
+    height: auto;
+    transition: transform 0.3ms ease-in-out;
+    
+}
+.producto img{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.producto:hover{
+    transform: translateY(-5px);
+}
+button{
+    background-color: burlywood;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: black;
+    color: aliceblue;
+}
+.nombreCarrito{
+
+}
