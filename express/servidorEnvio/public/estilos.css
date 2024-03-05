@@ -13,6 +13,21 @@ nav ul li{
     transition: transform 0.3ms ease-in-out;
     
 }
+.carrito-item{
+    border: 2px solid #ccc;
+    width: 200px;
+    box-shadow: 0 5px 8pz rgba(0, 0,0,1);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.subtotal{
+    color: blue;
+    font-size: 15pt;
+    font-weight: bold;
+
+}
+
 .producto img{
     width: 100%;
     border-radius: 10px;
@@ -28,10 +43,33 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
+.btnEliminar{
+    background-color: red;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: azure;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.btnAdd-R{
+    background-color: rgb(26, 139, 47);
+    font-size: 12pt;
+    font-weight: bold;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    margin: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: azure;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 button:hover{
     background-color: black;
     color: aliceblue;
 }
-.nombreCarrito{
-
+p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 }

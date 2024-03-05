@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',function(){
             botonAgregar.textContent='Agregar al Carrito 🛒';
             botonAgregar.addEventListener('click',()=>{
                 //Funcion para llamar a la ruta carrito (/carrito)
-                agregarCarrito(producto.id)
+                agregarCarrito(producto.id,producto.nombre,producto.precio);
             });
             productoDiv.appendChild(botonAgregar);
 
@@ -39,19 +39,19 @@ document.addEventListener('DOMContentLoaded',function(){
      })
      .catch(error=> console.error('Error al obtner los productos',error));
 
-     function agregarCarrito(id){
-        fetch('/carrito',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
+     function agregarCarrito(id, nombre, precio) {
+        fetch('/carrito', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             },
-            body:JSON.stringify({id})
+            body: JSON.stringify({ id, nombre, precio })
         })
-        .then(response=>response.text())
-        .then(mensaje=>alert(mensaje))
-        .catch(error=>console.error('Error al agregar el producto',error));
-
-     }
+        .then(response => response.text())
+        .then(mensaje => alert(mensaje))
+        .catch(error => console.error('Error al agregar el producto', error));
+    }
+    
 
      const botonComprar=document.getElementById('comprar');
 

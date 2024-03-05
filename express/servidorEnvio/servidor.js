@@ -26,42 +26,50 @@ servidor.get('/productos',(req,res)=>{
     });
 });
 
+
+const carritoFilePath = path.join(__dirname, 'data', 'carrito.json');
+
+
+servidor.post('/carrito', (req, res) => {
+    const { id, nombre, precio } = req.body;
+    const productoIndex = carrito.findIndex(item => item.id === id);
+
+    if (productoIndex !== -1) {
+        carrito[productoIndex].cantidad++;
+    } else {
+        carrito.push({ id, nombre, precio, cantidad: 1 });
+    }
+
+    //Funcion para guadar los datos del carrito en el archivo json
+    fs.writeFile(carritoFilePath, JSON.stringify(carrito), error=>{
+        if(error){
+            console.error('Error al enviar los datos al carrito',error);
+            res.status(500).send('Error al agregar los productos al carrito');
+        }else{
+            res.send('Producto agregado Correctamente')
+        }
+    })
+
+
+
+
+
+});
+
 //Prueba mostrar datos carrito
 servidor.get('/mostrarCarrito',(req,res)=>{
-    fs.readFile(path.join(__dirname,'carritoCompras')),(error,carrito)=>{
+    fs.readFile(path.join(__dirname, 'data','carrito.json'),(error,data)=>{
         if(error){
-            res.status(500).send('Error al obtner los datos')
+            res.status(500).send('Error de conectividad')
         }else{
-            res.json(JSON.parse(carrito))
+            res.json(JSON.parse(data));
         }
-    }
-})
-
-
-
-
-
-//Rutas agregar un producto al carrito de compras
-servidor.post('/carrito',(req,res)=>{
-    //fs.readFile(path.join(__dirname,'public','carrito.html'))
-    const {id,nombre,precio}=req.body;
-    const producto=carrito.find(item=> item.id===id);
-    const nombreProducto=carrito.find(item=>item.nombre===nombre)
-    const precioProducto=carrito.find(item=>item.precio===precio)
-    if(producto){
-        producto.cantidad++;
-    }else{
-        carrito.push({id,cantidad:1,nombre,precio});
-        //const agregado=document.createElement('p')
-        //agregado.textContent(carrito)
-
-    }
-    res.send('Producto agregado correctamente...');
+    });
 });
 
 servidor.get('/carritoCompras',(req,res)=>{
-    //res.sendFile(path.join(__dirname,'public','carritoCompras.html'))
-    res.json(carrito);
+    res.sendFile(path.join(__dirname,'public','mostrarCarrito.html'))
+    //res.json(carrito);
 });
 
 
