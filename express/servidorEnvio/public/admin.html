@@ -9,7 +9,20 @@
 
 </head>
 <body>
-    <h1>Administracion Tienda CATEC</h1>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container">
+            <ul>
+                <li><a class="navbar-brand"  href="/adminCatec">Inicio</a></li>
+                <li><a  class="navbar-brand" href="/actualizar">Actualizar</a></li>
+                <li><a  class="navbar-brand" href="/eliminar">Eliminar</a></li>
+                <li><a  class="navbar-brand" href="/">Ver Tienda</a></li>
+            </ul>
+        </div>
+        
+    </nav>
+    <br>
+    <div  class="container">
+        <h1>Administracion Tienda CATEC</h1>
         <form id="productoFrom">
             <label for="nombre">Nombre: </label>
             <input type="text" id="nombre" name="nombre" required>
@@ -24,9 +37,13 @@
         </form>
 
         <ul id="productos">
-
+    
         </ul>
+
+    </div>
+    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="admin.js"></script>
+        
 </body>
 </html>

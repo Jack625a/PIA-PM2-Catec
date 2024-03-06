@@ -17,7 +17,7 @@ servidor.use(express.json());
 let carrito=[];
 let productos=[];
 servidor.get('/productos',(req,res)=>{
-    fs.readFile(path.join(__dirname, 'data','producto.json'),(error,data)=>{
+    fs.readFile(path.join(__dirname, 'data','productos.json'),(error,data)=>{
         if(error){
             res.status(500).send('Error de conectividad')
         }else{
@@ -73,6 +73,10 @@ servidor.get('/carritoCompras',(req,res)=>{
     //res.json(carrito);
 });
 
+servidor.get('/adminCatec',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public','admin.html'))
+});
+
 
 
 //Ruta para confirmar compra
@@ -90,8 +94,24 @@ servidor.post('/comprar',(req,res)=>{
 //UPDATE() -PUT
 //DELETE() -DELETE
 
+
+//Obtener los datos de la base de datos local
+servidor.get('/admin',(req,res)=>{
+    fs.readFile(path.join(__dirname, 'data','productos.json'),(error,data)=>{
+        if(error){
+            res.status(500).send('Error de conectividad')
+        }else{
+            res.json(JSON.parse(data));
+            productos=JSON.parse(data)
+        }
+    });
+});
+
+
+
+
 //RUTA AGREGAR UN NUEVO PRODUCTO
-servidor.post('/productos',(req,res)=>{
+servidor.post('/admin',(req,res)=>{
     const nuevoProducto=req.body;
     nuevoProducto.id=productos.length+1;
     productos.push(nuevoProducto);
@@ -100,7 +120,7 @@ servidor.post('/productos',(req,res)=>{
     res.status(201).json(nuevoProducto);
 });
 //Ruta para actualizar un producto existente
-servidor.put('/productos/:id', (req,res)=>{
+servidor.put('/admin/:id', (req,res)=>{
     const productId=parseInt(req.params.id);
     const productoSeleccion=productos.findIndex(producto=>producto.id===productId);
     if(productoSeleccion !==-1){
@@ -115,7 +135,7 @@ servidor.put('/productos/:id', (req,res)=>{
 });
 
 //Ruta para Eliminar un producto
-servidor.delete('/productos/:id',(req,res)=>{
+servidor.delete('/admin/:id',(req,res)=>{
     const productId=parseInt(req.params.id);
     const productoSeleccion=productos.findIndex(producto=>producto.id===productId);
     if(productoSeleccion!==-1){
