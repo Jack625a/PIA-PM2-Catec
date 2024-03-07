@@ -77,6 +77,14 @@ servidor.get('/adminCatec',(req,res)=>{
     res.sendFile(path.join(__dirname,'public','admin.html'))
 });
 
+//Ruta actualizar
+servidor.get('/adminactualizar',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public','actualizarProducto.html'))
+});
+//Ruta Eliminar
+servidor.get('/admineliminar',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public','eliminarProducto.html'))
+});
 
 
 //Ruta para confirmar compra
