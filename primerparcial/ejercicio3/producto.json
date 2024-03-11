@@ -1,0 +1,18 @@
+[
+    {
+       "nombre":"Producto 1",
+       "precio":150,
+       "image":"https://petshop.petcenter.com.bo/wp-content/uploads/2021/02/DOG-CHOW-PUPPY-MINI-SMALL-21-KG.png"
+    },
+    {
+        "nombre":"Producto 2",
+        "precio":80,
+        "image":"https://petshop.petcenter.com.bo/wp-content/uploads/2021/02/DOG-CHOW-PUPPY-MINI-SMALL-21-KG.png"
+     },
+     {
+        "nombre":"Producto 3",
+        "precio":600,
+        "image":"https://petshop.petcenter.com.bo/wp-content/uploads/2021/02/DOG-CHOW-PUPPY-MINI-SMALL-21-KG.png"
+     }
+
+]

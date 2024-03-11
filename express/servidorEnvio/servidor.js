@@ -27,6 +27,7 @@ servidor.get('/productos',(req,res)=>{
     });
 });
 
+//RUTA PARA MOSTRAR UN PRODUCTO EN ESPECIFICO
 
 const carritoFilePath = path.join(__dirname, 'data', 'carrito.json');
 

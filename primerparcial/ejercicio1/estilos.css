@@ -1,0 +1,16 @@
+.card{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;   
+    height: auto;
+}
+.card:hover{
+    width: 250px;
+}
+.card img{
+    width: 100%;
+    
+}

@@ -1,7 +1,18 @@
 document.addEventListener('DOMContentLoaded', function(){
     const selectorProducto=document.getElementById('id');
+    const nombreProducto=document.getElementById('nombre');
+    const precioProducto=document.getElementById('precio');
+    const imagenProducto=document.getElementById('imagen');
     const actualizarForm=document.getElementById('actualizarForm');
     cargarProductos()
+    selectorProducto.addEventListener('change', function(){
+        const idProducto=selectorProducto.value;
+        //Funcion para obtener el producto
+        obtenerProducto(idProducto);
+    });
+
+
+
     actualizarForm.addEventListener('submit', function(evento){
         evento.preventDefault();
         const formData=new FormData(actualizarForm);
@@ -42,6 +53,19 @@ document.addEventListener('DOMContentLoaded', function(){
         })
         .catch(error=>console.error('Error al obtner los productos', error));
         
+    }
+
+    //Funcion para obtener el ´producto en el formulario
+    function obtenerProducto(id){
+        fetch(`/admin/${id}`)
+        .then(response=>response.json())
+        .then(producto=>{
+            nombreProducto.value=producto.nombre;
+            precioProducto.value=producto.precio;
+            imagenProducto.value=producto.imagen;
+
+        })
+        .catch(error=>console.error('Error al obtener el producto',error));
     }
 
 });
