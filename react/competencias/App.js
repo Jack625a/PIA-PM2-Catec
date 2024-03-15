@@ -37,21 +37,58 @@ const data=[
     imagen: 'https://cifpn1.com/siop/wp-content/uploads/2021/04/Plato-saludable.jpeg',
     descripcionCorta: 'Consejos para una dieta balanceada que te ayude a rendir al máximo en tus entrenamientos.',
     descripcionCompleta: 'Esta guía te ayudará a comprender la importancia de la nutrición para los deportistas. Encontrarás consejos para elegir alimentos saludables, planificar tus comidas y preparar snacks energéticos.',
-    }
+    },
+    {
+      id: '6',
+      titulo: 'Actividad física para principiantes',
+      imagen: 'https://www.vivosano.org/wp-content/uploads/2022/08/actividad-fisica.jpg',
+      descripcionCorta: 'Guía completa para comenzar a realizar actividad física de forma segura y efectiva.',
+      descripcionCompleta: 'Esta guía te ayudará a dar los primeros pasos hacia un estilo de vida más activo. Encontrarás información sobre los beneficios de la actividad física, cómo elegir la actividad adecuada para ti, consejos para empezar de forma gradual y cómo mantenerte motivado.',
+      },
+      {
+      id: '7',
+      titulo: 'Entrenamiento para mejorar la resistencia cardiovascular',
+      imagen: 'https://blog.base.net/wp-content/uploads/2018/01/mejorar-resistencia-cardiovascular.jpg',
+      descripcionCorta: 'Plan de entrenamiento de 8 semanas para aumentar tu resistencia cardiovascular y quemar calorías.',
+      descripcionCompleta: 'Este plan de entrenamiento está diseñado para ayudarte a mejorar tu capacidad cardiovascular de forma segura y efectiva. Incluye ejercicios aeróbicos de intensidad moderada y alta, así como consejos para la recuperación y la nutrición.',
+      },
+      {
+      id: '8',
+      titulo: 'Ejercicios para fortalecer el core',
+      imagen: 'https://go-fit.es/wp-content/uploads/2021/06/mejora-resistencia.jpg',
+      descripcionCorta: 'Rutina de ejercicios para fortalecer los músculos del core y mejorar la postura.',
+      descripcionCompleta: 'Esta rutina de ejercicios te ayudará a fortalecer los músculos abdominales, lumbares y oblicuos, que son esenciales para una buena postura y un cuerpo sano. Encontrarás ejercicios de diferentes niveles de dificultad, para que puedas adaptarlos a tu condición física.',
+      },
+      {
+      id: '9',
+      titulo: "Yoga para principiantes",
+      imagen: "https://www.webconsultas.com/sites/default/files/styles/wch_image_schema/public/temas/yoga.jpg",
+      descripcionCorta: "Guía introductoria al yoga, con posturas básicas y consejos para principiantes.",
+      descripcionCompleta: "Esta guía te enseñará los fundamentos del yoga, incluyendo la respiración, la concentración y las posturas básicas. Encontrarás consejos para principiantes y una secuencia de yoga suave para empezar."
+      },
+      {
+      id: '10',
+      titulo: 'Alimentación saludable para deportistas',
+      imagen: 'https://cifpn1.com/siop/wp-content/uploads/2021/04/Plato-saludable.jpeg',
+      descripcionCorta: 'Consejos para una dieta balanceada que te ayude a rendir al máximo en tus entrenamientos.',
+      descripcionCompleta: 'Esta guía te ayudará a comprender la importancia de la nutrición para los deportistas. Encontrarás consejos para elegir alimentos saludables, planificar tus comidas y preparar snacks energéticos.',
+      }
 ];
 
 export const App=()=>{
   const [seleccionItem,setSelecionItem]=useState(null);
   //Funcion para el click al item del Flatlist
   const clickItem=(item)=>{
-  setSelecionItem(item)
+    setSelecionItem(item);
   };
 
 
   const renderItem=({item})=>{
+    return(
     <TouchableOpacity
-    style={styles.contenedorItems}
     onPress={()=>clickItem(item)}
+    style={styles.contenedorItems}
+    
     >
     <Image
       source={{uri:item.imagen}}
@@ -62,6 +99,7 @@ export const App=()=>{
       <Text style={styles.itemDescripcion}>{item.descripcionCorta}</Text>
     </View>
     </TouchableOpacity>
+    );
   };
 
 return(
@@ -127,8 +165,8 @@ const styles = StyleSheet.create({
     elevation:5,
   },
   imagenItem:{
-    width:100,
-    height:100,
+    width:200,
+    height:200,
     borderTopLeftRadius:10,
     borderBottomLeftRadius:10,
 
@@ -164,7 +202,7 @@ const styles = StyleSheet.create({
   },
   modalImagen:{
     width:'100%',
-    height:200,
+    height:300,
     marginBottom:10,
     borderRadius:10,
   },
