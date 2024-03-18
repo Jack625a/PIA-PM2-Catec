@@ -3,32 +3,42 @@ import React from 'react';
 //Importacion de la navegacion
 import { createBottomTabNavigator } from '@react-navigation/native';
 import {NavigatorContainer} from '@react-navigation/bottom-tabs';
-import InicioScreen from './screens/inicio.js';
-import VideoScreen from './screens/videos.js';
-import NoticiasScreen from './screens/noticias.js';
-import PerfilScreen from './screens/perfil.js';
-
 
  //Definir las rutas de navegacion en la funcion
-function Inicio(){
+function InicioScreen(){
+  return(
   <Text>Prueba Inicio</Text>
+  );
+  
 }
 //Pantalla de videos
-function Videos(){
+function VideosScreen(){
   return(
     <Text>Prueba Videos</Text>
   );
 }
 
-function Noticias(){
+function NoticiasScreen(){
+  return(
   <Text>Prueba Noticias</Text>
+  );
+  
 }
 
-function Perfil(){
-  <Text>Prueba Perfil</Text>
+function PerfilScreen(){
+  return(
+    <Text>Prueba Perfil</Text>
+  );
+  
 }
 
-const Tab=createBottomTabNavigator();
+const Tab=createBottomTabNavigator({
+  Inicio:InicioScreen,
+  Videos:VideosScreen,
+  Noticias:NoticiasScreen,
+  Perfil:PerfilScreen
+});
+
 export default function App(){
   return(
     <NavigatorContainer>
