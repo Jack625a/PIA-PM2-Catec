@@ -13,6 +13,47 @@ import {VideoScreen} from './screens/videos';
 
 const {width}=Dimensions.get('window');
 
+//Datos para Pantalla Videos
+const datosVideo=[
+  {
+    id:1,
+    titulo:"SALUD MENTAL",
+    videoUrl:"https://www.youtube.com/watch?v=QmFTLHbp1As",
+    banner:"https://static.misionesonline.news/wp-content/uploads/2020/05/28083405/salud-mental.jpg"
+  },
+  {
+    id:2,
+    titulo:"SALUD MENTAL",
+    videoUrl:"https://www.youtube.com/watch?v=QmFTLHbp1As",
+    banner:"https://static.misionesonline.news/wp-content/uploads/2020/05/28083405/salud-mental.jpg"
+  },
+  {
+    id:3,
+    titulo:"SALUD MENTAL",
+    videoUrl:"https://www.youtube.com/watch?v=QmFTLHbp1As",
+    banner:"https://static.misionesonline.news/wp-content/uploads/2020/05/28083405/salud-mental.jpg"
+  },
+  {
+    id:4,
+    titulo:"SALUD MENTAL",
+    videoUrl:"https://www.youtube.com/watch?v=QmFTLHbp1As",
+    banner:"https://static.misionesonline.news/wp-content/uploads/2020/05/28083405/salud-mental.jpg"
+  },
+  {
+    id:5,
+    titulo:"¿Cómo empezar a Cuidar mi Salud Mental?",
+    videoUrl:"https://www.youtube.com/watch?v=wfOHdfqqJTs",
+    banner:"https://i0.wp.com/neurodoza.com/wp-content/uploads/2020/11/SALUD-MENTAL-NUEVA-NORMALIDAD-ND.jpg"
+  },
+  {
+    id:6,
+    titulo:"SALUD MENTAL",
+    videoUrl:"https://www.youtube.com/watch?v=QmFTLHbp1As",
+    banner:"https://www.unicef.org/mexico/sites/unicef.org.mexico/files/styles/hero_tablet/public/Mental%20Health%20%28Facebook%20ad%29%20%281%29.jpg.webp?itok=fQjjsr8M"
+  }
+  //Agregar mas datos....
+];
+
 //Datos para el banner
 const banners=[
   {
@@ -270,13 +311,87 @@ function PantallaInicio({navigation}){
       </View></>
   );
 }
-function PantallaVideo(){
+
+
+
+
+function PantallaVideo({navigation}){
+  //Pantalla Videos
+  const [seleccionVideo,setSelecionVideo]=useState(null);
+  //Renderizar datos
+  const renderItem=({item})=>{
+    return(
+      <TouchableOpacity
+      onPress={()=>setSelecionVideo(item)}
+      style={styles.contenedorItems}
+    >
+      <Image
+        source={{uri:item.banner}}
+        style={styles.imagenItemVideo}
+      />
+      <View style={styles.containerTextoitem}> 
+          <Text style={styles.itemTitulo2}>
+            {item.titulo}
+          </Text>
+      </View>
+    </TouchableOpacity>
+    ); 
+  }
+
   return(
-    <View>
-      <Text>Prueba</Text>
-    </View>
-  );
+    <><ScrollView contentContainerStyle={styles.container}>
+      <FlatList
+        data={datosVideo}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        contentContainerStyle={styles.flatlistContenedor} />
+
+    </ScrollView>
+    
+    {seleccionVideo &&(
+      <Modal
+        visible={seleccionVideo!==null}
+        animationType='slide'
+        transparent={true}
+      >
+        <View style={styles.modalContenedor2}>
+          <View style={styles.modalContenido2}>
+            <YoutubeIframePlayer
+              videoUrl={seleccionVideo.videoUrl}
+              height={300}
+              width="100%"
+              locale="km"
+              durationFontSize={16}
+            />
+          <TouchableOpacity
+            onPress={()=>setSelecionVideo(null)}
+            style={styles.botonCerrar}
+          >
+            <Text style={styles.botonCerrarTexto}>Cerrar</Text>
+          </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+    )}
+
+
+
+    <FAB
+        style={{ position: 'absolute', margin: 16, right: 0, bottom: 100 }}
+        icon="home"
+        onPress={() => navigation.navigate('Inicio')} />
+      <FAB
+        style={{ position: 'absolute', margin: 16, right: 0, bottom: 170 }}
+        icon="newspaper"
+        onPress={() => navigation.navigate('Noticias')} />
+      <FAB
+        style={{ position: 'absolute', margin: 16, right: 0, bottom: 240 }}
+        icon="video"
+        onPress={() => navigation.navigate('Video')} /></>
+);
 }
+
+  
 
 function PantallaNoticias({navigation}){
   const [seleccionItem,setSelecionItem]=useState(null);
@@ -497,6 +612,7 @@ const styles = StyleSheet.create({
     backgroundColor:'red',
     padding:10,
     borderRadius:5,
+    marginTop:30,
     alignSelf:'flex-end',
   },
   botonCerrarTexto:{
@@ -504,6 +620,39 @@ const styles = StyleSheet.create({
     color:'#fff',
     fontWeight:'bold',
   },
+  imagenItemVideo:{
+    width:200,
+    height:200,
+    borderBottomLeftRadius:10,
+    borderBottomRightRadius:10,
+  },
+  containerTextoitem:{
+    flex:1,
+    padding:15,
+  },
+  itemTitulo2:{
+    fontSize:20,
+    fontWeight:'bold',
+  },
+  modalContenedor2:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'rgba(0,0,0,0.5)',
+  },
+  modalContenido2:{
+    backgroundColor:'#fff',
+    borderRadius:15,
+    padding:15,
+    width:'90%',
+    height:450,
+
+  },
+  videoPlayer2:{
+    width:'90%',
+    height:450,
+  },
+
 
 
 
